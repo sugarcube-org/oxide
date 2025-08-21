@@ -47,7 +47,10 @@
   "files": [
     "index.js",
     "index.d.ts",
-    "scripts/install.js"
+    "scripts/install.js",
+    "tailwindcss-oxide.darwin-arm64.node",
+    "tailwindcss-oxide.wasm32-wasi.wasm",
+    "tailwindcss-oxide.wasi.cjs"
   ],
   "publishConfig": {
     "provenance": true,
