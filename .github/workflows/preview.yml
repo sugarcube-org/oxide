@@ -1,8 +1,8 @@
-name: CI
+name: Preview
 on: [push, pull_request]
 
 jobs:
-  test:
+  preview:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,8 +26,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run tests
-        run: pnpm run test
-
-      - name: Build
+      - name: Build packages
         run: pnpm run build
+
+      - name: Publish preview
+        run: |
+          pnpx pkg-pr-new publish './crates/node' --template './crates/node/'
