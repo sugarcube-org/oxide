@@ -23,6 +23,9 @@ jobs:
           toolchain: stable
           target: wasm32-wasip1-threads
 
+      - name: Install Rust target
+        run: rustup target add wasm32-wasip1-threads
+
       - name: Install dependencies
         run: pnpm install
 
