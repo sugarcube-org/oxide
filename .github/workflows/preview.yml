@@ -34,4 +34,13 @@ jobs:
 
       - name: Publish preview
         run: |
+          # Publish main package
           pnpx pkg-pr-new publish './crates/node' --template './crates/node/'
+          
+          # Publish platform-specific packages
+          for dir in ./crates/node/npm/*/; do
+            if [ -f "$dir/package.json" ]; then
+              echo "Publishing $(basename "$dir")..."
+              pnpx pkg-pr-new publish "$dir" --template "$dir"
+            fi
+          done
