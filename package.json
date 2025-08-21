@@ -2,6 +2,7 @@
   "name": "tailwindcss-crates",
   "private": true,
   "version": "1.0.0",
+  "packageManager": "pnpm@10.8.0",
   "scripts": {
     "build": "cd crates/node && EMNAPI_LINK_DIR=node_modules/emnapi/lib/wasm32-wasip1-threads pnpm build",
     "build:platform": "cd crates/node && pnpm run build:platform",
