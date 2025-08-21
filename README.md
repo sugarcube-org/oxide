@@ -1,11 +1,11 @@
-# Tailwind Oxide
+# Scanner
 
-This repository contains the Rust crates that power Tailwind Oxide's core functionality.
+A high-performance CSS class scanner extracted from Tailwind CSS. This package is used internally by [Sugarcube](https://github.com/sugarcube-org) to scan and extract CSS classes from various file formats and template languages.
 
 ## Crates
 
-- **`oxide`** - Core Tailwind CSS processing logic
-- **`ignore`** - File ignore pattern matching
+- **`oxide`** - Core scanning engine for file discovery and class extraction
+- **`ignore`** - File ignore pattern matching (gitignore-compatible)
 - **`classification-macros`** - Procedural macros for classification
 - **`node`** - Node.js bindings for the Rust crates
 
@@ -27,3 +27,7 @@ pnpm run build
 ```bash
 pnpm run publish
 ```
+
+## License
+
+MIT License. Portions derived from Tailwind CSS (Tailwind Labs, Inc.).
