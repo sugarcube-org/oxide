@@ -23,12 +23,25 @@ jobs:
           toolchain: stable
           target: wasm32-wasip1-threads
 
+      - name: Install Rust target
+        run: rustup target add wasm32-wasip1-threads
+
       - name: Install dependencies
         run: pnpm install
 
       - name: Build packages
         run: pnpm run build
 
+      - name: Move artifacts
+        run: |
+          cd crates/node
+          node ./scripts/move-artifacts.mjs
+
       - name: Publish preview
         run: |
+          # Copy WASM files to main package directory for publishing
+          cp ./crates/node/npm/wasm32-wasi/tailwindcss-oxide.wasm32-wasi.wasm ./crates/node/
+          cp ./crates/node/npm/wasm32-wasi/tailwindcss-oxide.wasi.cjs ./crates/node/
+          
+          # Publish main package with WASM included
           pnpx pkg-pr-new publish './crates/node' --template './crates/node/'

@@ -1,6 +1,6 @@
-# Tailwind CSS Crates
+# Tailwind Oxide
 
-This repository contains the Rust crates that power Tailwind CSS's core functionality.
+This repository contains the Rust crates that power Tailwind Oxide's core functionality.
 
 ## Crates
 
